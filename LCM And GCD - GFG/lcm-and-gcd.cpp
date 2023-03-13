@@ -5,13 +5,22 @@ using namespace std;
 // } Driver Code Ends
 class Solution {
   public:
-  
+   long long gcdi(long long a,long long b){
+       if(a==0)
+       return b;
+       if(b==0)
+       return a;
+       return gcdi(b,a%b);
+   }
  
   
     vector<long long> lcmAndGcd(long long A , long long B) {
-       long long gcd=__gcd(A,B);
-       long long lcm=(A*B)/gcd;
-       return {lcm,gcd};
+    //   long long gcd=__gcd(A,B);
+    //   long long lcm=(A*B)/gcd;
+    //   return {lcm,gcd};
+    long long gcd=gcdi(A,B);
+    long long lcm=(A*B)/gcd;
+    return {lcm,gcd};
     }
 };
 
